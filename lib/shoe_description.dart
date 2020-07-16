@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:nike_online_store/data.dart';
 import 'package:nike_online_store/constants.dart';
@@ -51,42 +53,37 @@ class _ShoeDescriptionState extends State<ShoeDescription> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Padding(
-          padding: EdgeInsets.only(left: 16,),
-          child: Row(
-            children: <Widget>[
-
-              GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Icon(
-                  Icons.arrow_back,
-                  color: kPurpleCustom.withOpacity(0.5),
-                  size: 28,
-                ),
-              ),
-
-              SizedBox(
-                width: 16,
-              ),
-
-              Text(
-                "MEN / ",
-                style: TextStyle(
-                  color: kPurpleCustom.withOpacity(0.5),
-                ),
-              ),
-
-              Text(
-                "SHOES",
-                style: TextStyle(
-                  color: kPurpleCustom,
-                ),
-              ),
-
-            ],
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Padding(
+            padding: EdgeInsets.only(left: 16,),
+            child: Icon(
+              Icons.arrow_back,
+              color: kPurpleCustom.withOpacity(0.5),
+              size: 28,
+            ),
           ),
+        ),
+        title: Row(
+          children: <Widget>[
+
+            Text(
+              "MEN / ",
+              style: TextStyle(
+                color: kPurpleCustom.withOpacity(0.5),
+              ),
+            ),
+
+            Text(
+              "SHOES",
+              style: TextStyle(
+                color: kPurpleCustom,
+              ),
+            ),
+
+          ],
         ),
         actions: <Widget>[
 
@@ -158,7 +155,7 @@ class _ShoeDescriptionState extends State<ShoeDescription> {
               children: <Widget>[
 
                 Padding(
-                  padding: EdgeInsets.only(bottom: 32,),
+                  padding: EdgeInsets.only(bottom: 16,),
                   child: PageView(
                     physics: BouncingScrollPhysics(),
                     onPageChanged: (int page){
@@ -167,15 +164,24 @@ class _ShoeDescriptionState extends State<ShoeDescription> {
                       });
                     },
                     children: widget.shoe.images.map((path) {
-                      return Container(
-                        height: 50,
-                    color: Colors.red,
-                        child: Hero(
-                          tag: widget.shoe.name,
-                          child: Image.asset(
-                                widget.shoe.images[0],
-                                
+                      return Center(
+                        child: AnimatedContainer(
+                          duration: Duration(milliseconds: 500),
+                          height: size.height * 0.28,
+                          child: Hero(
+                            tag: widget.shoe.name,
+                            child: Transform(
+                              alignment: Alignment.center,
+                              transform: Matrix4.rotationY(math.pi),
+                              child: RotationTransition(
+                                turns: new AlwaysStoppedAnimation(20 / 360),
+                                child: Image.asset(
+                                  path,
+                                  fit: BoxFit.fitHeight,
+                                ),
                               ),
+                            ),
+                          ),
                         ),
                       );
                     }).toList(),

@@ -32,37 +32,32 @@ class _ShoesState extends State<Shoes> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Padding(
+        leading: Padding(
           padding: EdgeInsets.only(left: 16,),
-          child: Row(
-            children: <Widget>[
-
-              Icon(
-                Icons.arrow_back,
-                color: kPurpleCustom.withOpacity(0.5),
-                size: 28,
-              ),
-
-              SizedBox(
-                width: 16,
-              ),
-
-              Text(
-                "MEN / ",
-                style: TextStyle(
-                  color: kPurpleCustom.withOpacity(0.5),
-                ),
-              ),
-
-              Text(
-                "SHOES",
-                style: TextStyle(
-                  color: kPurpleCustom,
-                ),
-              ),
-
-            ],
+          child: Icon(
+            Icons.arrow_back,
+            color: kPurpleCustom.withOpacity(0.5),
+            size: 28,
           ),
+        ),
+        title: Row(
+          children: <Widget>[
+
+            Text(
+              "MEN / ",
+              style: TextStyle(
+                color: kPurpleCustom.withOpacity(0.5),
+              ),
+            ),
+
+            Text(
+              "SHOES",
+              style: TextStyle(
+                color: kPurpleCustom,
+              ),
+            ),
+
+          ],
         ),
         actions: <Widget>[
 
@@ -144,9 +139,7 @@ class _ShoesState extends State<Shoes> {
         child: Container(
           width: 130,
           height: 50,
-          decoration: BoxDecoration(
-            gradient: kGradient,
-          ),
+          color: Colors.grey[200],
           child: Center(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -155,7 +148,7 @@ class _ShoesState extends State<Shoes> {
                 Icon(
                   Octicons.settings,
                   size: 22,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
 
                 SizedBox(
@@ -166,7 +159,7 @@ class _ShoesState extends State<Shoes> {
                   "Filters",
                   style: TextStyle(
                     fontSize: 18,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
 
