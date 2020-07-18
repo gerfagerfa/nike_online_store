@@ -309,8 +309,7 @@ class _ShoeDescriptionState extends State<ShoeDescription> {
                       return Center(
                         child: Align(
                           alignment: Alignment.centerRight,
-                          child: AnimatedContainer(
-                            duration: Duration(milliseconds: 500),
+                          child: Container(
                             height: size.height * 0.20,
                             margin: EdgeInsets.only(right: 32),
                             child: Hero(

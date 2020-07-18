@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:nike_online_store/constants.dart';
 import 'package:nike_online_store/data.dart';
 import 'package:nike_online_store/shoe_description.dart';
