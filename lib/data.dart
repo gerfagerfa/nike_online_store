@@ -34,6 +34,18 @@ List<Shoe> getShoeList(){
       Color(0xFFFFF7BD),
     ),
     Shoe(
+      "Aix Max 720",
+      "Air", 
+      Category.Lifestyle,
+      125.00,
+      0,
+      [
+        "assets/images/air_max_720_0.png",
+        "assets/images/air_max_720_1.png",
+      ],
+      Color(0xFFD8F5F6),
+    ),
+    Shoe(
       "Air Max 270 React",
       "Air", 
       Category.Lifestyle,
@@ -43,18 +55,6 @@ List<Shoe> getShoeList(){
         "assets/images/air_max_270_react_0.png",
         "assets/images/air_max_270_react_1.png",
         "assets/images/air_max_270_react_2.png",
-      ],
-      Color(0xFFD8F5F6),
-    ),
-    Shoe(
-      "Aix Max 720",
-      "Air", 
-      Category.Lifestyle,
-      125.00,
-      0,
-      [
-        "assets/images/air_max_720_0.png",
-        "assets/images/air_max_720_1.png",
       ],
       Color(0xFFDFE6E8),
     ),
@@ -88,7 +88,7 @@ List<Shoe> getShoeList(){
       "React", 
       Category.Walking,
       125.00,
-      0,
+      10,
       [
         "assets/images/react_presto_t4_0.png",
         "assets/images/react_presto_t4_1.png",

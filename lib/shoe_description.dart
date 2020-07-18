@@ -1,10 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:nike_online_store/data.dart';
 import 'package:nike_online_store/constants.dart';
-import 'package:flutter_icons/flutter_icons.dart';
-
 import 'dart:math' as math;
 
 class ShoeDescription extends StatefulWidget {
@@ -50,6 +46,7 @@ class _ShoeDescriptionState extends State<ShoeDescription> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: widget.shoe.backgroundColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -88,7 +85,7 @@ class _ShoeDescriptionState extends State<ShoeDescription> {
         actions: <Widget>[
 
           Icon(
-            Octicons.search,
+            Icons.search,
             color: kPurpleCustom.withOpacity(0.5),
             size: 28,
           ),
@@ -98,7 +95,7 @@ class _ShoeDescriptionState extends State<ShoeDescription> {
           ),
 
           Icon(
-            SimpleLineIcons.bag,
+            Icons.shopping_basket,
             color: kPurpleCustom,
             size: 28,
           ),
@@ -115,7 +112,7 @@ class _ShoeDescriptionState extends State<ShoeDescription> {
         children: <Widget>[
 
           SizedBox(
-            height: 32,
+            height: 16,
           ),
 
           Padding(
@@ -150,6 +147,151 @@ class _ShoeDescriptionState extends State<ShoeDescription> {
             height: 32,
           ),
 
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 32),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+
+                      Padding(
+                        padding: EdgeInsets.only(left: 4, bottom: 8,),
+                        child: Text(
+                          "STYLE",
+                          style: TextStyle(
+                            color: kPurpleCustom.withOpacity(0.5),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+
+
+                      Card(
+                        elevation: 4,
+                        clipBehavior: Clip.antiAlias,
+                        child: Container(
+                          height: 50,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 12),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+
+                                Row(
+                                  children: <Widget>[
+
+                                    Container(
+                                      height: 25,
+                                      width: 25,
+                                      decoration: BoxDecoration(
+                                        color: Colors.grey,
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(25),
+                                        ),
+                                      ),
+                                    ),
+
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+
+                                    Text(
+                                      "Wolf Grey",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+
+                                  ],
+                                ),
+
+                                Icon(
+                                  Icons.keyboard_arrow_down,
+                                  color: Colors.grey,
+                                  size: 28,
+                                ),
+
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                SizedBox(
+                  width: 16,
+                ),
+
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+
+                      Padding(
+                        padding: EdgeInsets.only(left: 4, bottom: 8,),
+                        child: Text(
+                          "SIZE",
+                          style: TextStyle(
+                            color: kPurpleCustom.withOpacity(0.5),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+
+
+                      Card(
+                        elevation: 4,
+                        clipBehavior: Clip.antiAlias,
+                        child: Container(
+                          height: 50,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 12),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+
+                                Text(
+                                  "EUR - 45.5",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+
+                                Icon(
+                                  Icons.keyboard_arrow_down,
+                                  color: Colors.grey,
+                                  size: 28,
+                                ),
+
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+              ],
+            ),
+          ),
+
+          SizedBox(
+            height: 32,
+          ),
+
           Expanded(
             child: Stack(
               children: <Widget>[
@@ -165,19 +307,23 @@ class _ShoeDescriptionState extends State<ShoeDescription> {
                     },
                     children: widget.shoe.images.map((path) {
                       return Center(
-                        child: AnimatedContainer(
-                          duration: Duration(milliseconds: 500),
-                          height: size.height * 0.28,
-                          child: Hero(
-                            tag: widget.shoe.name,
-                            child: Transform(
-                              alignment: Alignment.center,
-                              transform: Matrix4.rotationY(math.pi),
-                              child: RotationTransition(
-                                turns: new AlwaysStoppedAnimation(20 / 360),
-                                child: Image.asset(
-                                  path,
-                                  fit: BoxFit.fitHeight,
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: AnimatedContainer(
+                            duration: Duration(milliseconds: 500),
+                            height: size.height * 0.20,
+                            margin: EdgeInsets.only(right: 32),
+                            child: Hero(
+                              tag: widget.shoe.name,
+                              child: Transform(
+                                alignment: Alignment.center,
+                                transform: Matrix4.rotationY(math.pi),
+                                child: RotationTransition(
+                                  turns: new AlwaysStoppedAnimation(20 / 360),
+                                  child: Image.asset(
+                                    path,
+                                    fit: BoxFit.fitHeight,
+                                  ),
                                 ),
                               ),
                             ),

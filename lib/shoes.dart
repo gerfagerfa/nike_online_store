@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nike_online_store/constants.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import 'package:nike_online_store/data.dart';
 import 'package:nike_online_store/shoe_description.dart';
 
@@ -62,8 +61,8 @@ class _ShoesState extends State<Shoes> {
         actions: <Widget>[
 
           Icon(
-            Octicons.search,
-            color: kPurpleCustom.withOpacity(0.5),
+            Icons.search,
+            color: kPurpleCustom,
             size: 28,
           ),
 
@@ -72,7 +71,7 @@ class _ShoesState extends State<Shoes> {
           ),
 
           Icon(
-            SimpleLineIcons.bag,
+            Icons.shopping_basket,
             color: kPurpleCustom,
             size: 28,
           ),
@@ -89,7 +88,7 @@ class _ShoesState extends State<Shoes> {
         children: <Widget>[
 
           SizedBox(
-            height: 32,
+            height: 16,
           ),
 
           Padding(
@@ -146,7 +145,7 @@ class _ShoesState extends State<Shoes> {
               children: <Widget>[
 
                 Icon(
-                  Octicons.settings,
+                  Icons.filter_list,
                   size: 22,
                   color: Colors.black,
                 ),
